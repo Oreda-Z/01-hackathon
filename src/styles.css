@@ -20,7 +20,8 @@ body {
     width: 150px;
     background: #1b1a1a;
     border-radius: 5px;
-    display: none;
+    /*TODO: Разкоментировать после реалезации меню*/
+    /*display: none;*/
     list-style: none;
 }
 
