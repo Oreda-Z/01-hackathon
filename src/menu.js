@@ -27,7 +27,7 @@ export class ContextMenu extends Menu {
 
     add(module) {
         this.menu.insertAdjacentHTML('beforeend', module.toHTML());
-        console.log('this.menu = ', this.menu);
+        this.menu.style.display = 'none';
 
         this.el.querySelector('.menu-item').addEventListener('click', () => {
             module.trigger();

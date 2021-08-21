@@ -35,7 +35,6 @@ import {randomColor} from "./utils";
 
 const contextMenu = new ContextMenu('.menu');
 
-
 window.addEventListener("contextmenu", event => {
 	contextMenu.open(event);
 })
@@ -45,3 +44,8 @@ document.addEventListener("click", event => {
 
 const shapeModule = new ShapeModule("randomColor", "Случайная фигура");
 contextMenu.add(shapeModule);
+const timerModule = new TimerModule("timer module", "таймер");
+contextMenu.add(timerModule);
+const backgroundModule = new BackgroundModule("background", "фон");
+contextMenu.add(backgroundModule);
+
