@@ -21,3 +21,4 @@ menu.addEventListener('click',(event)=>{
 		timerModule.trigger()
 	}
 })
+
