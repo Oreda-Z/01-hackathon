@@ -25,12 +25,14 @@ export class ContextMenu extends Menu {
         this.menu.style.display = 'none';
     }
 
-    add(module) {
-        this.menu.insertAdjacentHTML('beforeend', module.toHTML());
-        this.menu.style.display = 'none';
-
-        this.el.querySelector('.menu-item').addEventListener('click', () => {
-            module.trigger();
-        });
+    add(modules) {
+        modules.forEach(module => this.menu.insertAdjacentHTML('beforeend', module.toHTML()))
+        this.menu.addEventListener('click', (event) => {
+            modules.forEach(module => {
+                if (module.type === event.target.dataset.type) {
+                    module.trigger()
+                }
+            })
+        })
     }
 }
