@@ -2,21 +2,31 @@ import {Module} from '../core/module'
 import {randomColor, random } from '../utils'
 
 export class ShapeModule extends Module {
-    // отправить в репо
     #shapesContainer
     constructor(type, text) {
         super(type, text);
         this.#shapesContainer = document.createElement('div')
-        this.#shapesContainer.style.position = 'relative'
     }
 
     trigger() {
         const body = document.body
         body.append(this.#shapesContainer)
-        this.#shapesContainer.append(createShape())
+        const div = createShape()
+        this.#shapesContainer.append(div)
+
+        let currentElement
+        let startX = 0
+        let startY = 0
+
+        document.addEventListener('mousemove', (evt) => {
+            if (currentElement) {
+                currentElement.style.top = `${evt.clientY - startY}px`
+                currentElement.style.left = `${evt.clientX - startX}px`
+            }
+        });
 
         function createShape() {
-            const minSize = 0
+            const minSize = 50
             const maxSize = 150
             const div = document.createElement('div')
             div.style.position = 'absolute'
@@ -26,7 +36,17 @@ export class ShapeModule extends Module {
             div.style.borderRadius = `${random(0, 50)}%`
             div.style.top = `${random(0, window.innerHeight)}px`
             div.style.left = `${random(0, window.innerWidth)}px`
+
+            div.addEventListener('mousedown', (e) => {
+                currentElement = div;
+                startX = e.offsetX
+                startY = e.offsetY
+            })
+            div.addEventListener('mouseup', (e) => {
+                currentElement = false
+            });
             return div
         }
+
     }
 }
