@@ -6,7 +6,8 @@ import {ShapeModule} from "./modules/shape.module";
 /*
 Todo:
  - Добавил временно, для тестов модулей
- - Удалить после реализации меню
+ - Удалить после реализации меню и качественной проверки
+
 * */
 const backgroundModule = new BackgroundModule('background','Поменять Цвет')
 const timerModule =new TimerModule('timer','Таймер')
