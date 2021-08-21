@@ -9,7 +9,7 @@ Todo:
  - Удалить после реализации меню
 * */
 const backgroundModule = new BackgroundModule('background','Поменять Цвет')
-const timerModule = new TimerModule('timer','Таймер')
+const timerModule =new TimerModule('timer','Таймер')
 const createShape = new ShapeModule('shape', 'Создать фигурку')
 
 const menu = document.querySelector('#menu')
