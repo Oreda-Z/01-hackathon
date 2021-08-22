@@ -28,14 +28,16 @@ export class ShapeModule extends Module {
         function createShape() {
             const minSize = 50
             const maxSize = 150
+            const width = random(minSize, maxSize)
+            const height = random(minSize, maxSize)
             const div = document.createElement('div')
-            div.style.position = 'absolute'
-            div.style.width = `${random(minSize, maxSize)}px`
-            div.style.height = `${random(minSize, maxSize)}px`
+            div.className = 'shape__item'
+            div.style.width = `${width}px`
+            div.style.height = `${height}px`
             div.style.background = randomColor()
             div.style.borderRadius = `${random(0, 50)}%`
-            div.style.top = `${random(0, window.innerHeight)}px`
-            div.style.left = `${random(0, window.innerWidth)}px`
+            div.style.top = `${random(0, window.innerHeight - height)}px`
+            div.style.left = `${random(0, window.innerWidth - width)}px`
 
             div.addEventListener('mousedown', (e) => {
                 currentElement = div;
