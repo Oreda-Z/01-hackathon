@@ -1,8 +1,9 @@
 import {Module} from '../core/module'
-import { StopWatch, randomColor } from '../utils'
+import {StopWatch, randomColor} from '../utils'
 
 export class StopWatchModule extends Module {
     #stopWatchContainer
+
     constructor(type, text) {
         super(type, text);
         this.#stopWatchContainer = document.createElement('div')
@@ -47,18 +48,20 @@ export class StopWatchModule extends Module {
         new StopWatch(durationInput, startButton, pauseButton, {
 
             onStart(totalDuration) {
-                duration = totalDuration;
+                duration = totalDuration
             },
 
             onTick(timeRemaining) {
                 circle.setAttribute('stroke-dashoffset',
                     perimetr * timeRemaining / duration - perimetr
-                );
+                )
             },
 
             onComplete() {
                 alert('Секунды истекли..')
-                setTimeout(()=> { console.log(this.getStopWatchContainer)}, 0)
+
+                const watch = document.querySelector('.controls')
+                watch.remove()
             }
 
         })
