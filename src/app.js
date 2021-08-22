@@ -2,6 +2,8 @@ import {ContextMenu} from './menu'
 import {BackgroundModule} from './modules/background.module'
 import {TimerModule} from './modules/timer.module'
 import {ShapeModule} from './modules/shape.module'
+import {StopWatchModule} from "./modules/stopwatch.module";
+
 import './styles.css'
 
 const contextMenu = new ContextMenu('.menu')
@@ -16,7 +18,8 @@ document.addEventListener('click', event => {
 const shapeModule = new ShapeModule('randomFigure', 'Случайная фигура')
 const timerModule = new TimerModule('timer', 'Таймер')
 const backgroundModule = new BackgroundModule('randomBackground', 'Сменить фон')
-const arrWithModules = [shapeModule, timerModule, backgroundModule]
+const stopwatchModule = new StopWatchModule('stopWatch', 'Секундомер')
+const arrWithModules = [shapeModule, timerModule, backgroundModule, stopwatchModule]
 contextMenu.add(arrWithModules)
 
 
