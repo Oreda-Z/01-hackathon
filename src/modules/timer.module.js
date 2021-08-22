@@ -6,9 +6,12 @@ export class TimerModule extends Module {
 	#timerTemplate
 	#timerStyles
 	#timerInterval
+	#showMessage
 
-	constructor(type, text) {
+	constructor(type, text, time, showMessage = true) {
 		super(type, text)
+		this.#time = time
+		this.#showMessage = showMessage
 		this.#timerTemplate = document.createElement('div')
 		this.#timerStyles = `
 			background-color:lightblue; 
@@ -25,7 +28,9 @@ export class TimerModule extends Module {
 	}
 
 	trigger() {
-		this.#time = Number(prompt('Введите время для таймера', ''))
+		if(!this.#time){
+			this.#time = Number(prompt('Введите время для таймера', ''))
+		}
 		while (isNaN(this.#time)) {
 			this.#time = Number(prompt('Введите корректное время для таймера', ''))
 		}
@@ -45,7 +50,9 @@ export class TimerModule extends Module {
 	}
 
 	#alertMessage() {
-		alert('Обратный отсчет окончен! Таймер успешно уничтожен :)')
+		if (this.#showMessage){
+			alert('Обратный отсчет окончен! Таймер успешно уничтожен :)')
+		}
 	}
 
 	#destroy() {
