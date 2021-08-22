@@ -6,6 +6,7 @@ import {StopWatchModule} from "./modules/stopwatch.module";
 
 import './styles.css'
 import {SuperCounter} from "./modules/superCounter";
+import {RandomMessage} from "./modules/randomMessage";
 
 const contextMenu = new ContextMenu('.menu')
 
@@ -21,7 +22,8 @@ const timerModule = new TimerModule('timer', 'Таймер')
 const backgroundModule = new BackgroundModule('randomBackground', 'Сменить фон')
 const stopwatchModule = new StopWatchModule('stopWatch', 'Секундомер')
 const superCounter = new SuperCounter('superCounter', 'Супер счетчик')
-const arrWithModules = [shapeModule, timerModule, backgroundModule, stopwatchModule, superCounter]
+const randomMessage = new RandomMessage('randomMessage', 'Случайное сообщение');
+const arrWithModules = [shapeModule, timerModule, backgroundModule, stopwatchModule, superCounter, randomMessage]
 contextMenu.add(arrWithModules)
 
 
