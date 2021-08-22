@@ -8,6 +8,7 @@ import {SuperCounterModule} from "./modules/superCounter.module";
 import {RandomMessageModule} from "./modules/randomMessage.module";
 import {RandomSoundModule} from "./modules/randomSound.module";
 import {CleanWindowModule} from "./modules/cleanWindow.module";
+import {ClicksModule} from './modules/clicks.module'
 
 const contextMenu = new ContextMenu('.menu')
 
@@ -26,5 +27,10 @@ const superCounter = new SuperCounterModule('superCounter', 'Супер счет
 const randomMessage = new RandomMessageModule('randomMessage', 'Случайное сообщение')
 const randomSound = new RandomSoundModule('randomSound', 'Cлучайный звук')
 const cleanWindow = new CleanWindowModule('cleanWindow', 'Очистить экран')
-const arrWithModules = [shapeModule, timerModule, backgroundModule, stopwatchModule, superCounter, randomMessage, randomSound, cleanWindow]
+const clickModule = new ClicksModule('clicksAnalytic', 'Аналитика кликов')
+const arrWithModules = [
+	shapeModule, timerModule, backgroundModule,
+	stopwatchModule, superCounter, randomMessage,
+	randomSound, cleanWindow, clickModule
+]
 contextMenu.add(arrWithModules)
