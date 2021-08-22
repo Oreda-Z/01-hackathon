@@ -1,21 +1,24 @@
 import {Module} from '../core/module'
-import {random} from "../utils";
+import {random, randomColor} from "../utils"
 
 export class RandomMessage extends Module {
 
-    #messages;
+    #messages
 
     constructor(type, text) {
-        super(type, text);
-        this.#messages = ['Lorem Ipsum is simply dummy text', 'of the printing and typesetting industry', 'It is a long established fact that a reader will be',
-        'There are many variations of passages', 'by injected humour or randomised words', ' over 200 Latin words, combined with a handful of model',
-        'The standard chunk of used since the 1500s is reproduced below', 'If you are going to use a passage of you need to be sure there isn\'t anything'];
+        super(type, text)
+        this.#messages = ['Улыбнись сегодняшнему дню', 'Зарядка сама себя не сделает', 'Желаем бодрости духа', 'Позаботься о себе',
+            'Помни зачем ты здесь', 'Волшебство в твоих руках', 'Учиться, учиться, учиться'
+        ]
     }
 
     trigger() {
-        const indexOdWord = random(0, this.#messages.length);
-        const randomMessage = document.createElement('div');
-        randomMessage.textContent = this.#messages[indexOdWord];
-        document.body.append(randomMessage);
+        const indexOdWord = random(0, this.#messages.length - 1)
+        const randomMessage = document.createElement('div')
+        randomMessage.innerHTML = `<h2 class="random__message__text">${this.#messages[indexOdWord]}</h2>`
+        randomMessage.style.color = randomColor()
+        randomMessage.className = 'random__message'
+        document.body.append(randomMessage)
+        setTimeout(()=> {randomMessage.remove()}, 3000)
     }
 }
