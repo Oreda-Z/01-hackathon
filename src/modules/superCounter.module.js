@@ -118,8 +118,6 @@ export class SuperCounterModule extends Module {
             this.#endValue = event.target.value;
         })
 
-
-
         return settingsPanel;
     }
 

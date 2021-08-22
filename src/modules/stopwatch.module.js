@@ -60,8 +60,8 @@ export class StopWatchModule extends Module {
             onComplete() {
                 alert('Секунды истекли..')
 
-                const watch = document.querySelector('.controls')
-                watch.remove()
+                const timer = document.querySelector('.timer')
+                timer.remove()
             }
 
         })
