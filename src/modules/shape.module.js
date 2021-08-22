@@ -7,11 +7,11 @@ export class ShapeModule extends Module {
         super(type, text);
         this.#shapesContainer = document.createElement('div')
     }
-
     trigger() {
         const body = document.body
         body.append(this.#shapesContainer)
         const div = createShape()
+        this.#shapesContainer.innerHTML = ''
         this.#shapesContainer.append(div)
 
         let currentElement
@@ -50,5 +50,10 @@ export class ShapeModule extends Module {
             return div
         }
 
+        setTimeout(()=>{ this.getShapeContainer.innerHTML = ''}, 5000)
+    }
+
+    get getShapeContainer() {
+        return this.#shapesContainer
     }
 }
