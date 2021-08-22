@@ -8,6 +8,7 @@ import './styles.css'
 import {SuperCounter} from "./modules/superCounter";
 import {RandomMessage} from "./modules/randomMessage";
 import {RandomSound} from "./modules/randomSound";
+import {CleanWindow} from "./modules/cleanWindow";
 
 const contextMenu = new ContextMenu('.menu')
 
@@ -18,14 +19,15 @@ document.addEventListener('click', event => {
 	contextMenu.close()
 })
 
-const shapeModule = new ShapeModule('randomFigure', 'Случайная фигура');
-const timerModule = new TimerModule('timer', 'Таймер');
-const backgroundModule = new BackgroundModule('randomBackground', 'Сменить фон');
-const stopwatchModule = new StopWatchModule('stopWatch', 'Секундомер');
-const superCounter = new SuperCounter('superCounter', 'Супер счетчик');
-const randomMessage = new RandomMessage('randomMessage', 'Случайное сообщение');
-const randomSound = new RandomSound('randomSound', 'случайный звук');
-const arrWithModules = [shapeModule, timerModule, backgroundModule, stopwatchModule, superCounter, randomMessage, randomSound];
-contextMenu.add(arrWithModules);
+const shapeModule = new ShapeModule('randomFigure', 'Случайная фигура')
+const timerModule = new TimerModule('timer', 'Таймер')
+const backgroundModule = new BackgroundModule('randomBackground', 'Сменить фон')
+const stopwatchModule = new StopWatchModule('stopWatch', 'Секундомер')
+const superCounter = new SuperCounter('superCounter', 'Супер счетчик')
+const randomMessage = new RandomMessage('randomMessage', 'Случайное сообщение')
+const randomSound = new RandomSound('randomSound', 'Cлучайный звук')
+const cleanWindow = new CleanWindow('cleanWindow', 'Очистить экран')
+const arrWithModules = [shapeModule, timerModule, backgroundModule, stopwatchModule, superCounter, randomMessage, randomSound, cleanWindow]
+contextMenu.add(arrWithModules)
 
 
