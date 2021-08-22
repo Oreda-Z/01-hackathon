@@ -7,16 +7,17 @@ export class ClicksModule extends Module {
 	#timer
 	constructor(type, text) {
 		super(type, text)
-		this.#count = 0
 	}
 
 	trigger() {
+		this.#count = -1
 		this.#time = Number(prompt('Введите время для аналитики кликов', ''))
 		while (isNaN(this.#time)) {
 			this.#time = Number(prompt('Введите корректное время для аналитики кликов', ''))
 		}
 		const click = () => this.#count +=1
 		const dblclick = () => this.#count +=2
+		// const dblclick = event => (event.currentTarget === document) ? this.#count +=2 : null
 		this.#timer = new TimerModule('timerForClickModule','timerForClickModule',this.#time, false)
 		this.#timer.trigger()
 		document.addEventListener('click',click)
