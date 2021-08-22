@@ -308,3 +308,36 @@ body {
 .sCounter__settingPanel__labelMax__title {
     color: white;
 }
+
+.random__message {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    background: lightgoldenrodyellow;
+    opacity: 100%;
+    animation: messageAnima ease-in 3s;
+}
+
+.random__message__text {
+    font-size: 24px;
+}
+
+@keyframes messageAnima {
+    from {
+        transform:  rotate(-5deg);
+    }
+
+    35% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+        opacity: 0.7;
+    }
+
+    to {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+}
