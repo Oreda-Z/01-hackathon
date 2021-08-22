@@ -8,6 +8,10 @@ export class StopWatchModule extends Module {
         this.#stopWatchContainer = document.createElement('div')
     }
 
+    get getStopWatchContainer() {
+        return this.#stopWatchContainer
+    }
+
     trigger() {
         const body = document.body
         body.append(this.#stopWatchContainer)
@@ -15,8 +19,8 @@ export class StopWatchModule extends Module {
         this.#stopWatchContainer.innerHTML = ` <div class="controls">
               <input id="duration" type="text" value="3">
               <div>
-                <button id="start" type="button">Запустить</button>
-                <button id="pause" type="button">Остановить</button>     
+                <button id="start" type="button" class="sCounter__panel__next__nextButton">Запустить</button>
+                <button id="pause" type="button" class="sCounter__panel__next__nextButton">Остановить</button>     
               </div>
             </div>
             <svg class="dial" height="400" width="400">
@@ -31,14 +35,14 @@ export class StopWatchModule extends Module {
                />
             </svg></div>`
 
-        const durationInput = document.querySelector('#duration');
-        const startButton = document.querySelector('#start');
-        const pauseButton = document.querySelector('#pause');
-        const circle = document.querySelector('circle');
-        const perimetr = circle.getAttribute('r') * 2 * Math.PI;
-        circle.setAttribute('stroke-dasharray', perimetr);
+        const durationInput = document.querySelector('#duration')
+        const startButton = document.querySelector('#start')
+        const pauseButton = document.querySelector('#pause')
+        const circle = document.querySelector('circle')
+        const perimetr = circle.getAttribute('r') * 2 * Math.PI
+        circle.setAttribute('stroke-dasharray', perimetr)
 
-        let duration;
+        let duration
 
         new StopWatch(durationInput, startButton, pauseButton, {
 
@@ -54,8 +58,9 @@ export class StopWatchModule extends Module {
 
             onComplete() {
                 alert('Секунды истекли..')
+                setTimeout(()=> { console.log(this.getStopWatchContainer)}, 0)
             }
 
-        });
+        })
     }
 }

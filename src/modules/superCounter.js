@@ -148,6 +148,7 @@ export class SuperCounter extends Module {
         wrapperCounter.append(deleteCounter);
         const deleteCounterButton = document.createElement('button');
         deleteCounterButton.textContent = 'Удалить счетчик';
+        deleteCounterButton.className = 'sCounter__panel__next__nextButton'
         deleteCounter.append(deleteCounterButton);
         deleteCounterButton.addEventListener('click', event => {
             this.#isPanel = true;
@@ -156,6 +157,7 @@ export class SuperCounter extends Module {
 
         const set = document.createElement('button');
         set.textContent = 'настройки';
+        set.className = 'sCounter__panel__next__nextButton'
         deleteCounter.append(set);
         set.addEventListener('click', event => {
             wrapperCounter.remove();
